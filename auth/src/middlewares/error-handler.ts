@@ -3,7 +3,13 @@
 /**
   * @module error-handler.ts
   * @author John Butler
-  * @description 
+  * @description sends back an error object with an array of error messages in it
+	* {
+	*		errors: {
+	* 		message: string, field?: string
+	*		}[]
+	*	}	
+	}
 */
 
 import { Request, Response, NextFunction } from 'express';
@@ -17,11 +23,14 @@ export const errorHandler = (
 	next: NextFunction
 ) => {
 	if (err instanceof RequestValidationError) {
-		console.log('handling req val error');
+		const formattedErrors = err.errors.map(error => {
+			return { message: error.msg, field: error.param };
+		});
+		return res.status(400).send({ errors: formattedErrors });
 	}
 
 	if (err instanceof DatabaseConnectionError) {
-		console.log('db con error');
+		return res.status(500).send({ errors: [ { message: err.reason } ] });
 	}
-	res.status(400).send({ message: err.message });
+	res.status(400).send({ errors: [ { message: 'Something went wrong!' } ] });
 };
