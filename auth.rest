@@ -1,3 +1,4 @@
+
 GET https://ticketing.dev/api/users/currentuser
 ###
 
@@ -5,8 +6,25 @@ POST https://ticketing.dev/api/users/signup HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "jpb@the.com",
-  "password": "xxeeeeeeee"
+  "email": "jp",
+  "password": "xe"
 }
 ###
 
+POST https://ticketing.dev/api/users/signup HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "jp@thedog.com",
+  "password": "x556677"
+}
+###
+
+GET https://ticketing.dev/dogfood
+###
+
+POST https://ticketing.dev/dogfood HTTP/1.1
+Content-Content-Type: application/json
+
+{}
+###
