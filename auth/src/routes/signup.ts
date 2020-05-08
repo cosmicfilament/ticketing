@@ -43,7 +43,7 @@ router.post(
 		const user = User.build({ email, password });
 		await user.save();
 
-		//generate a jwt and
+		//generate a jwt synchronously and
 		const userJwt = jwt.sign(
 			{
 				id: user.id,
