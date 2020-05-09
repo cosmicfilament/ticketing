@@ -1,7 +1,29 @@
 
+// Sign IN duff
+POST https://ticketing.dev/api/users/signin HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "duff@springfield.nuke",
+  "password": "x556dfdfd677"
+}
+###
+
+// Get current user
 GET https://ticketing.dev/api/users/currentuser
 ###
 
+// Sign OUT
+POST https://ticketing.dev/api/users/signout
+Content-Type: application/json
+
+{
+  "email": "duff@springfield.nuke",
+  "password": "x556dfdfd677"
+}
+###
+
+// Sign UP
 POST https://ticketing.dev/api/users/signup HTTP/1.1
 Content-Type: application/json
 
@@ -11,18 +33,21 @@ Content-Type: application/json
 }
 ###
 
+// Another Sign UP
 POST https://ticketing.dev/api/users/signup HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "apoe@springfield.nuke",
+  "email": "duff@springfield.nuke",
   "password": "x556dfdfd677"
 }
 ###
 
+// Bad Get Request
 GET https://ticketing.dev/dogfood
 ###
 
+// Bad Post Request
 POST https://ticketing.dev/dogfood HTTP/1.1
 Content-Content-Type: application/json
 
