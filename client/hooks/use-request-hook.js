@@ -1,13 +1,21 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-const useRequestHook = ({ url, method, body }) => {
+const useRequestHook = ({
+	url,
+	method,
+	body,
+	onSuccess
+}) => {
 	const [ errorMessages, setErrorMessages ] = useState({});
 
 	const doRequest = async () => {
 		try {
 			setErrorMessages({});
-			return await axios[method](url, body);
+			const response = await axios[method](url, body);
+			if (onSuccess) {
+				onSuccess(response.data);
+			}
 		} catch (error) {
 			const errors = error.response.data.errors;
 			let formattedErrors = {};

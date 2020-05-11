@@ -6,7 +6,7 @@ export default () => {
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const { doRequest, errorMessages } = useRequestHook({
-		url: '/api/users/signup',
+		url: '/api/users/signin',
 		method: 'post',
 		body: { email, password },
 		onSuccess: () => Router.push('/')
@@ -19,7 +19,7 @@ export default () => {
 
 	return (
 		<form className='container' onSubmit={handleOnSubmit}>
-			<h1>Sign Up</h1>
+			<h1>Sign In</h1>
 			<div className='form-group'>
 				<label>Email Address</label>
 				<input
@@ -39,7 +39,7 @@ export default () => {
 				/>
 				{errorMessages.password}
 			</div>
-			<button className='btn btn-primary'>Sign Up</button>
+			<button className='btn btn-primary'>Sign In</button>
 			{errorMessages._default}
 		</form>
 	);
