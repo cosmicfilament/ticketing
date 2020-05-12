@@ -1,15 +1,7 @@
-'use strict';
-
-/**
-  * @module signin.ts
-  * @author John Butler
-  * @description 
-*/
-
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-import { BadRequestError } from '../errors/bad-request-error';
-import { validateRequest } from '../middlewares/validate-request';
+import { BadRequestError, validateRequest } from '@dogslobber/common';
+
 import { Password as PasswordCheck } from '../services/password';
 import { User } from '../models/user';
 import jwt from 'jsonwebtoken';
