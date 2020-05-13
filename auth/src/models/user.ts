@@ -16,11 +16,14 @@ interface UserAttrs {
 }
 
 // An interface that describes the props that a User model has
+// represents the whole collection of docs
 interface UserModel extends mongoose.Model<UserDoc> {
 	build(attrs: UserAttrs): UserDoc;
 }
 
 // An interface that describes the props that a User Document has
+// represents a single record
+// mongodb might add fields to the doc that are not on the attrs
 interface UserDoc extends mongoose.Document {
 	email: string;
 	password: string;
@@ -56,7 +59,7 @@ userSchema.pre('save', async function (done) {
 	}
 	done();
 });
-
+// factory build function that uses typescripts' type checking
 userSchema.statics.build = (attrs: UserAttrs) => {
 	return new User(attrs);
 };

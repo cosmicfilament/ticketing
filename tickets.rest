@@ -1,0 +1,64 @@
+
+// Sign UP
+POST https://ticketing.dev/api/users/signup HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "duff@springfield.nuke",
+  "password": "x556dfdfd677"
+}
+###
+
+
+// Sign IN duff
+POST https://ticketing.dev/api/users/signin HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "duff@springfield.nuke",
+  "password": "x556dfdfd677"
+}
+###
+
+// Sign OUT
+POST https://ticketing.dev/api/users/signout
+Content-Type: application/json
+
+{
+  "email": "duff@springfield.nuke",
+  "password": "x556dfdfd677"
+}
+###
+
+POST https://ticketing.dev/api/tickets HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "The Doors",
+  "price": "15"
+}
+###
+
+POST https://ticketing.dev/api/tickets HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "The Beatles",
+  "price": "15"
+}
+###
+
+GET https://ticketing.dev/api/tickets
+###
+
+GET https://ticketing.dev/api/tickets/5ebc347f8466e2002cd63ee1
+###
+
+PUT https://ticketing.dev/api/tickets/5ebc347f8466e2002cd63ee1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "The Beatles",
+  "price": "10000"
+}
+###
