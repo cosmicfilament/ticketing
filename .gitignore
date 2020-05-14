@@ -1,5 +1,6 @@
 node_modules
 common
+nats-test
 env*
 .next
 
