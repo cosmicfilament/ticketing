@@ -20,7 +20,6 @@ app.use(
 // if logged in will put current user on the app object
 // so that we can use it for validation on route handlers
 app.use(currentUser);
-
 app.use(createTicketRouter);
 app.use(showTicketRouter);
 app.use(IndexTicketRouter);

@@ -7,6 +7,8 @@ import {
 	NotAuthorizedError
 } from '@dogslobber/common';
 import { Ticket } from '../models/ticket';
+import { TicketUpdatedPublisher } from '../events/publishers/ticket-updated-publisher';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
@@ -38,8 +40,15 @@ router.put(
 			title: req.body.title,
 			price: req.body.price
 		});
+		// in production environment would ideally need to
+		// wrap these 2 functions in a transaction with rollback
 		await ticket.save();
-
+		new TicketUpdatedPublisher(natsWrapper.client).publish({
+			id: ticket.id,
+			title: ticket.title,
+			price: ticket.price,
+			userId: ticket.userId
+		});
 		res.send(ticket);
 	}
 );
