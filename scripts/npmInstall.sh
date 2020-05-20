@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd ../client
+echo '******************'
+pwd
+echo '******************'
+npm install
 cd ../auth
 echo '******************'
 pwd

@@ -2,9 +2,9 @@
 
 # republish the common directory to npm
 # and push to github
-cd ../common
-npm run pub
-sleep 10
+#cd ../common
+#npm run pub
+#sleep 10
 # update the auth directory
 cd ../auth
 npm update @dogslobber/common
