@@ -22,7 +22,7 @@ export default ({ currentUser }) => {
 		<nav className='navbar navbar-light bg-light'>
 			<Link href='/'>
 				<a className='navbar-brand'>
-					GotTicks <Avatar />{' '}
+					GotTix <Avatar />{' '}
 					{currentUser &&
 						`Hello ${currentUser.email}!
 					`}

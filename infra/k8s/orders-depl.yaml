@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: us.gcr.io/ticketing-dev-276419/orders
+          image: jpbutler2000/orders
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
