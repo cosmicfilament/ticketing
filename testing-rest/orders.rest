@@ -40,3 +40,12 @@ Content-Type: application/json
   "price": "15"
 }
 ###
+
+PUT https://ticketing.dev/api/tickets/5ec57829fc4056002388b400
+Content-Type: application/json
+
+{
+  "title": "The Beatles",
+  "price": "10000"
+}
+###
